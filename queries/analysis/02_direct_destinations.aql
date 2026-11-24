@@ -1,0 +1,5 @@
+FOR airport IN 1..1 OUTBOUND @origin GRAPH "flight_network"
+  COLLECT key = airport._key, iata = airport.iata, city = airport.city
+    WITH COUNT INTO carrierEdges
+  SORT iata, key
+  RETURN { key, iata, city, carrierEdges }

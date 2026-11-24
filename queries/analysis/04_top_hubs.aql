@@ -1,0 +1,7 @@
+FOR edge IN routes
+  COLLECT source = edge._from, destination = edge._to
+  COLLECT airportId = source WITH COUNT INTO destinations
+  SORT destinations DESC, airportId
+  LIMIT 10
+  LET airport = DOCUMENT(airportId)
+  RETURN { key: airport._key, iata: airport.iata, destinations }

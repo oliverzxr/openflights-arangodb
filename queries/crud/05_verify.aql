@@ -1,0 +1,5 @@
+RETURN {
+  airport: DOCUMENT("airports/demo_terminal"),
+  route: DOCUMENT("routes/demo_route"),
+  seed: [DOCUMENT("airports/2590").iata, DOCUMENT("airports/2564").iata]
+}

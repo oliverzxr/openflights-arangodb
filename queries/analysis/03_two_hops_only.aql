@@ -1,0 +1,12 @@
+LET direct = (
+  FOR airport IN 1..1 OUTBOUND @origin GRAPH "flight_network"
+    RETURN DISTINCT airport._id
+)
+FOR airport, edge, path IN 2..2 OUTBOUND @origin GRAPH "flight_network"
+  OPTIONS { uniqueVertices: "path" }
+  FILTER airport._id NOT IN direct
+  COLLECT key = airport._key, iata = airport.iata, city = airport.city
+    INTO via = path.vertices[1]._key
+  LET viaCount = LENGTH(UNIQUE(via))
+  SORT viaCount DESC, key
+  RETURN { key, iata, city, viaCount }

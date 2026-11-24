@@ -1,0 +1,5 @@
+FOR airport IN airports
+  FILTER airport.country == @country AND airport.iata >= @iata_min
+  SORT airport.iata, airport._key
+  LIMIT 10
+  RETURN { key: airport._key, iata: airport.iata, city: airport.city }

@@ -1,0 +1,26 @@
+LET brokenRoutes = (
+  FOR route IN routes
+    FILTER !IS_SAME_COLLECTION("airports", route._from)
+      OR !IS_SAME_COLLECTION("airports", route._to)
+      OR route._from == route._to
+      OR DOCUMENT(route._from) == null
+      OR DOCUMENT(route._to) == null
+      OR (route.airline_id != null AND DOCUMENT("airlines", route.airline_id) == null)
+    COLLECT WITH COUNT INTO total
+    RETURN total
+)
+LET duplicatedIdentities = (
+  FOR route IN routes
+    COLLECT origin = route._from, destination = route._to, carrier = route.carrier
+      WITH COUNT INTO matches
+    FILTER matches > 1
+    COLLECT WITH COUNT INTO total
+    RETURN total
+)
+RETURN {
+  airports: LENGTH(airports),
+  airlines: LENGTH(airlines),
+  routes: LENGTH(routes),
+  invalid_routes: FIRST(brokenRoutes),
+  duplicated_identities: FIRST(duplicatedIdentities)
+}

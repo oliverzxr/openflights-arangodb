@@ -1,0 +1,6 @@
+FOR airport IN airports
+  FILTER airport._key == "demo_terminal" AND airport.demo == true
+  UPDATE { _key: airport._key, _rev: airport._rev }
+    WITH { name: "Terminal de ensaio revisado", stage: "updated" } IN airports
+    OPTIONS { ignoreRevs: false }
+  RETURN { before: OLD.name, after: NEW.name, stage: NEW.stage }

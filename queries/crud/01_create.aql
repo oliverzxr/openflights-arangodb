@@ -1,0 +1,9 @@
+LET mcz = DOCUMENT("airports/2590")
+LET gru = DOCUMENT("airports/2564")
+FILTER ASSERT(mcz.iata == "MCZ" AND gru.iata == "GRU", "demo seed invalid")
+INSERT { _key: "demo_terminal", name: "Terminal de ensaio", city: mcz.city,
+         country: mcz.country, demo: true } INTO airports
+LET terminal = NEW
+INSERT { _key: "demo_route", _from: gru._id, _to: terminal._id,
+         carrier: "demo", demo: true } INTO routes
+RETURN { airport: terminal, route: NEW }

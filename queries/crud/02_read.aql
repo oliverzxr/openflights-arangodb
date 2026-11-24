@@ -1,0 +1,4 @@
+FOR airport, edge IN 1..1 OUTBOUND "airports/2564" GRAPH "flight_network"
+  FILTER airport._key == "demo_terminal" AND airport.demo == true
+  FILTER edge._key == "demo_route" AND edge.demo == true
+  RETURN { name: airport.name, stage: airport.stage, route: edge._key }

@@ -1,0 +1,8 @@
+LET airport = DOCUMENT("airports/demo_terminal")
+LET route = DOCUMENT("routes/demo_route")
+FILTER airport.demo == true AND route.demo == true
+FILTER route._from == "airports/2564" AND route._to == airport._id
+REMOVE { _key: route._key, _rev: route._rev } IN routes OPTIONS { ignoreRevs: false }
+LET removedRoute = OLD._key
+REMOVE { _key: airport._key, _rev: airport._rev } IN airports OPTIONS { ignoreRevs: false }
+RETURN { deletedAirport: OLD._key, deletedRoute: removedRoute }

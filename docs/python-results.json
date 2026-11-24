@@ -1,0 +1,172 @@
+{
+  "source_revision": "3b0e4d82e0f1c660c706c92bc00dec608a7d8eab",
+  "etl": {
+    "airports": {
+      "original": 7698,
+      "retained": 7698
+    },
+    "airlines": {
+      "original": 6162,
+      "invalid_id_or_name": 1,
+      "retained": 6161
+    },
+    "routes": {
+      "original": 67663,
+      "missing_airport_id": 423,
+      "unknown_airport_id": 469,
+      "nonstop_filter": 11,
+      "self_loop": 1,
+      "retained": 66759
+    }
+  },
+  "graph": {
+    "vertices": 7698,
+    "edges": 66759,
+    "directed_pairs": 36906,
+    "connected_airports": 3214,
+    "isolated_airports": 4484,
+    "pairs_with_parallel_edges": 16275,
+    "carrier_edges_per_pair": {
+      "1": 20631,
+      "2": 9365,
+      "3": 3731,
+      "4": 1568,
+      "5": 751,
+      "6": 384,
+      "7": 204,
+      "8": 129,
+      "9": 74,
+      "10": 41,
+      "11": 15,
+      "12": 9,
+      "13": 2,
+      "19": 1,
+      "20": 1
+    },
+    "reciprocal_direction_pairs": 36096,
+    "edges_with_airline_catalog_match": 66304,
+    "codeshare_only_edges": 14474,
+    "non_codeshare_only_edges": 52285,
+    "mixed_codeshare_edges": 0
+  },
+  "top_outbound": [
+    {
+      "key": "340",
+      "iata": "FRA",
+      "destinations": 239
+    },
+    {
+      "key": "1382",
+      "iata": "CDG",
+      "destinations": 237
+    },
+    {
+      "key": "580",
+      "iata": "AMS",
+      "destinations": 232
+    },
+    {
+      "key": "1701",
+      "iata": "ISL",
+      "destinations": 224
+    },
+    {
+      "key": "3682",
+      "iata": "ATL",
+      "destinations": 217
+    },
+    {
+      "key": "3830",
+      "iata": "ORD",
+      "destinations": 206
+    },
+    {
+      "key": "3364",
+      "iata": "PEK",
+      "destinations": 204
+    },
+    {
+      "key": "346",
+      "iata": "MUC",
+      "destinations": 191
+    },
+    {
+      "key": "3670",
+      "iata": "DFW",
+      "destinations": 187
+    },
+    {
+      "key": "4029",
+      "iata": "DME",
+      "destinations": 187
+    }
+  ],
+  "maceio": {
+    "origin": {
+      "key": "2590",
+      "iata": "MCZ"
+    },
+    "direct": [
+      "AJU",
+      "BSB",
+      "GIG",
+      "GRU",
+      "REC",
+      "SSA",
+      "VCP"
+    ],
+    "two_hops_only_count": 114,
+    "most_alternatives": [
+      {
+        "key": "1638",
+        "iata": "LIS",
+        "connections": 6
+      },
+      {
+        "key": "2537",
+        "iata": "CNF",
+        "connections": 6
+      },
+      {
+        "key": "2559",
+        "iata": "FOR",
+        "connections": 6
+      },
+      {
+        "key": "2597",
+        "iata": "NAT",
+        "connections": 6
+      },
+      {
+        "key": "2545",
+        "iata": "CWB",
+        "connections": 5
+      },
+      {
+        "key": "2575",
+        "iata": "JPA",
+        "connections": 5
+      },
+      {
+        "key": "2612",
+        "iata": "SDU",
+        "connections": 5
+      },
+      {
+        "key": "2638",
+        "iata": "VIX",
+        "connections": 5
+      },
+      {
+        "key": "3576",
+        "iata": "MIA",
+        "connections": 5
+      },
+      {
+        "key": "1871",
+        "iata": "PTY",
+        "connections": 4
+      }
+    ]
+  }
+}

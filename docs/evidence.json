@@ -1,0 +1,353 @@
+{
+  "execution_date": "2026-11-24",
+  "host": "Windows",
+  "server_environment": "Linux x86_64, QEMU, SINGLE",
+  "official_image": "arangodb:3.12.13",
+  "linux_amd64_manifest": "sha256:3bbe8ad850776d9709c6f6bb5a1f9e9a2c3eb6e6cc5f0a8d676c6d12b1defe32",
+  "api_version_response": {
+    "server": "arango",
+    "license": "enterprise",
+    "version": "3.12.13",
+    "apiVersions": [
+      "v0"
+    ],
+    "deprecatedApiVersions": [],
+    "requestedApiVersion": "v0"
+  },
+  "community_license_status": {
+    "commercial_key_applied": false,
+    "disk_limit_bytes": 107374182400
+  },
+  "import": {
+    "airports": {
+      "created": 7698,
+      "ignored": 0
+    },
+    "airlines": {
+      "created": 6161,
+      "ignored": 0
+    },
+    "routes": {
+      "created": 66759,
+      "ignored": 0
+    }
+  },
+  "reimport": {
+    "airports": {
+      "created": 0,
+      "ignored": 7698
+    },
+    "airlines": {
+      "created": 0,
+      "ignored": 6161
+    },
+    "routes": {
+      "created": 0,
+      "ignored": 66759
+    }
+  },
+  "verified_collection_counts": {
+    "airports": 7698,
+    "airlines": 6161,
+    "routes": 66759
+  },
+  "aql": {
+    "01_brazil_airports": {
+      "row_count": 10,
+      "displayed_rows": [
+        {
+          "key": "2612",
+          "iata": "SDU",
+          "city": "Rio De Janeiro"
+        },
+        {
+          "key": "7371",
+          "iata": "SFK",
+          "city": "Soure"
+        },
+        {
+          "key": "2615",
+          "iata": "SJK",
+          "city": "Sao Jose Dos Campos"
+        }
+      ]
+    },
+    "02_direct_destinations": {
+      "row_count": 7,
+      "displayed_rows": [
+        {
+          "key": "2522",
+          "iata": "AJU",
+          "city": "Aracaju",
+          "carrierEdges": 1
+        },
+        {
+          "key": "2531",
+          "iata": "BSB",
+          "city": "Brasilia",
+          "carrierEdges": 3
+        },
+        {
+          "key": "2560",
+          "iata": "GIG",
+          "city": "Rio De Janeiro",
+          "carrierEdges": 2
+        },
+        {
+          "key": "2564",
+          "iata": "GRU",
+          "city": "Sao Paulo",
+          "carrierEdges": 3
+        },
+        {
+          "key": "2610",
+          "iata": "REC",
+          "city": "Recife",
+          "carrierEdges": 1
+        },
+        {
+          "key": "2621",
+          "iata": "SSA",
+          "city": "Salvador",
+          "carrierEdges": 2
+        },
+        {
+          "key": "2578",
+          "iata": "VCP",
+          "city": "Campinas",
+          "carrierEdges": 1
+        }
+      ]
+    },
+    "03_two_hops_only": {
+      "row_count": 114,
+      "displayed_rows": [
+        {
+          "key": "1638",
+          "iata": "LIS",
+          "city": "Lisbon",
+          "viaCount": 6
+        },
+        {
+          "key": "2537",
+          "iata": "CNF",
+          "city": "Belo Horizonte",
+          "viaCount": 6
+        },
+        {
+          "key": "2559",
+          "iata": "FOR",
+          "city": "Fortaleza",
+          "viaCount": 6
+        },
+        {
+          "key": "2597",
+          "iata": "NAT",
+          "city": "Natal",
+          "viaCount": 6
+        }
+      ]
+    },
+    "04_top_hubs": {
+      "row_count": 10,
+      "displayed_rows": [
+        {
+          "key": "340",
+          "iata": "FRA",
+          "destinations": 239
+        },
+        {
+          "key": "1382",
+          "iata": "CDG",
+          "destinations": 237
+        },
+        {
+          "key": "580",
+          "iata": "AMS",
+          "destinations": 232
+        }
+      ]
+    },
+    "05_shortest_path": {
+      "row_count": 3,
+      "displayed_rows": [
+        {
+          "key": "2590",
+          "iata": "MCZ",
+          "city": "Maceio"
+        },
+        {
+          "key": "2578",
+          "iata": "VCP",
+          "city": "Campinas"
+        },
+        {
+          "key": "1638",
+          "iata": "LIS",
+          "city": "Lisbon"
+        }
+      ]
+    },
+    "06_integrity": {
+      "row_count": 1,
+      "displayed_rows": [
+        {
+          "airports": 7698,
+          "airlines": 6161,
+          "routes": 66759,
+          "invalid_routes": 0,
+          "duplicated_identities": 0
+        }
+      ]
+    }
+  },
+  "filter_plan_indexes": [
+    {
+      "type": "persistent",
+      "fields": [
+        "country",
+        "iata"
+      ]
+    }
+  ],
+  "python_cross_check": "passed",
+  "empty_filter": [],
+  "crud_cli": {
+    "prepared": {
+      "database": "openflights_demo",
+      "import": {
+        "airports": {
+          "created": 2,
+          "ignored": 0
+        },
+        "airlines": {
+          "created": 3,
+          "ignored": 0
+        },
+        "routes": {
+          "created": 6,
+          "ignored": 0
+        }
+      },
+      "verified": {
+        "airports": 2,
+        "airlines": 3,
+        "routes": 6
+      }
+    },
+    "steps": {
+      "01_create": [
+        {
+          "airport": {
+            "_key": "demo_terminal",
+            "_id": "airports/demo_terminal",
+            "_rev": "_mesyueq---",
+            "name": "Terminal de ensaio",
+            "city": "Maceio",
+            "country": "Brazil",
+            "demo": true
+          },
+          "route": {
+            "_key": "demo_route",
+            "_id": "routes/demo_route",
+            "_from": "airports/2564",
+            "_to": "airports/demo_terminal",
+            "_rev": "_mesyue2---",
+            "carrier": "demo",
+            "demo": true
+          }
+        }
+      ],
+      "02_read": [
+        {
+          "name": "Terminal de ensaio",
+          "stage": null,
+          "route": "demo_route"
+        }
+      ],
+      "03_update": [
+        {
+          "before": "Terminal de ensaio",
+          "after": "Terminal de ensaio revisado",
+          "stage": "updated"
+        }
+      ],
+      "04_delete": [
+        {
+          "deletedAirport": "demo_terminal",
+          "deletedRoute": "demo_route"
+        }
+      ],
+      "05_verify": [
+        {
+          "airport": null,
+          "route": null,
+          "seed": [
+            "MCZ",
+            "GRU"
+          ]
+        }
+      ]
+    },
+    "verified_after": {
+      "airports": 2,
+      "airlines": 3,
+      "routes": 6
+    }
+  },
+  "crud_web_ui": {
+    "database": "openflights_demo",
+    "interface": "ArangoDB Web UI",
+    "operations": [
+      "01_create",
+      "02_read",
+      "03_update",
+      "04_delete",
+      "05_verify"
+    ],
+    "verified": {
+      "airport": null,
+      "route": null,
+      "seed": [
+        "MCZ",
+        "GRU"
+      ]
+    }
+  },
+  "automated_tests_passed": 10,
+  "logical_backup": {
+    "tool_collection_counts": {
+      "dump": 11,
+      "restore": 11
+    },
+    "database": "openflights_restore_check",
+    "verified": {
+      "airports": 7698,
+      "airlines": 6161,
+      "routes": 66759
+    },
+    "restored_graph": "flight_network",
+    "verified_direct_destinations": 7,
+    "restored_persistent_indexes": {
+      "airports": [
+        {
+          "fields": [
+            "country",
+            "iata"
+          ],
+          "unique": false
+        }
+      ],
+      "routes": [
+        {
+          "fields": [
+            "_from",
+            "_to",
+            "carrier"
+          ],
+          "unique": true
+        }
+      ]
+    }
+  }
+}

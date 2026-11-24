@@ -37,7 +37,7 @@ Use Python 3.10+ no computador que executa a carga e o ArangoDB Community 3.12.1
    python -m openflights_graph demo --output data/crud-results.json
    ```
 
-No editor **Queries** da Web UI, cole o conteúdo de um arquivo em `queries/analysis`, informe os parâmetros do [catálogo](queries.md) e use **Execute**. Em **Graphs**, selecione `flight_network`. Para pesquisar pela CLI use, por exemplo, `python -m openflights_graph query 02_direct_destinations`.
+No editor **Queries** da Web UI, cole o conteúdo de um arquivo em `queries/analysis`, informe os parâmetros do [catálogo](queries.md) e use **Execute**. Em **Graphs**, selecione `flight_network`. Para pesquisar pela CLI use, por exemplo, `python -m openflights_graph query 02_direct_destinations`. O [catálogo de consultas](queries.md#crud-no-banco-de-ensaio) descreve as operações de escrita no banco `openflights_demo`.
 
 ## Alternativa sem Docker
 
